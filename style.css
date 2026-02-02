@@ -1,97 +1,147 @@
-/* Reset básico */
+/* RESET */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', sans-serif;
+    font-family: 'Poppins', system-ui, sans-serif;
 }
 
+/* BODY */
 body {
     min-height: 100vh;
-    background: linear-gradient(135deg, #2b1055, #7597de);
+    background: radial-gradient(circle at top, #3a0a5e, #12001c);
     color: #fff;
-    position: relative;
     overflow-x: hidden;
 }
 
-.background-overlay {
-    position: fixed;
-    inset: 0;
-    background: url("https://i.imgur.com/8Qf6B9F.png") center/cover no-repeat;
-    opacity: 0.15;
-    z-index: -1;
-}
-
-/* Hero */
+/* HERO */
 .hero {
     text-align: center;
-    padding: 4rem 1rem;
+    padding: 3rem 1rem 2rem;
+    animation: fadeDown 1.2s ease;
+}
+
+.logo {
+    width: 180px;
+    max-width: 80%;
+    margin-bottom: 1rem;
+    animation: glow 3s infinite alternate;
 }
 
 .hero h1 {
-    font-size: 3rem;
-    color: #ffb6e1;
-    text-shadow: 0 0 15px rgba(255, 182, 225, 0.8);
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: #ffb6e9;
+    text-shadow: 0 0 20px rgba(255,182,233,0.8);
 }
 
 .hero p {
-    font-size: 1.2rem;
-    margin-top: 0.5rem;
-    color: #f5d9ff;
+    margin-top: 0.4rem;
+    color: #ffd9f3;
 }
 
-/* Cards */
-.cards {
-    display: flex;
+/* SKINS SECTION */
+.skins {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 2rem;
-    justify-content: center;
     padding: 2rem;
-    flex-wrap: wrap;
+    max-width: 1000px;
+    margin: auto;
 }
 
-.card {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border-radius: 16px;
-    padding: 2rem;
-    width: 300px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(255, 182, 225, 0.5);
-}
-
-.card h2 {
+/* CARD */
+.skin-card {
+    background: rgba(255,255,255,0.08);
+    border-radius: 18px;
+    padding: 1.2rem;
     text-align: center;
-    margin-bottom: 1rem;
-    font-size: 2rem;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+    transform: translateY(30px);
+    opacity: 0;
+    animation: fadeUp 1s ease forwards;
 }
 
-.card p {
-    text-align: center;
-    line-height: 1.6;
-    font-size: 0.95rem;
+.skin-card:nth-child(2) {
+    animation-delay: 0.3s;
 }
 
-/* Colores por personaje */
+.skin-card img {
+    width: 100%;
+    border-radius: 14px;
+    transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.skin-card:hover img {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 18px rgba(255,182,233,0.8));
+}
+
+.skin-card h2 {
+    margin-top: 1rem;
+    font-size: 1.6rem;
+}
+
+.skin-card span {
+    display: block;
+    margin-top: 0.2rem;
+    font-size: 0.9rem;
+    opacity: 0.85;
+}
+
+/* COLORS */
 .lancelot h2 {
-    color: #6cf2ff;
-    text-shadow: 0 0 10px rgba(108, 242, 255, 0.8);
+    color: #7ee6ff;
+    text-shadow: 0 0 12px rgba(126,230,255,0.8);
 }
 
 .odette h2 {
     color: #ff9edb;
-    text-shadow: 0 0 10px rgba(255, 158, 219, 0.8);
+    text-shadow: 0 0 12px rgba(255,158,219,0.8);
 }
 
-/* Footer */
+/* FOOTER */
 footer {
     text-align: center;
     padding: 1.5rem;
-    font-size: 0.9rem;
-    color: #ffd6f5;
+    font-size: 0.85rem;
+    color: #ffcae8;
 }
+
+/* ANIMATIONS */
+@keyframes fadeDown {
+    from {
+        opacity: 0;
+        transform: translateY(-40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes glow {
+    from {
+        filter: drop-shadow(0 0 8px rgba(255,182,233,0.4));
+    }
+    to {
+        filter: drop-shadow(0 0 22px rgba(255,182,233,1));
+    }
+}
+
+/* RESPONSIVE EXTRA */
+@media (max-width: 480px) {
+    .hero {
+        padding-top: 2rem;
+    }
+}
+
+
 
