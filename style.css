@@ -3,68 +3,95 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
 }
 
-/* Body */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #c3ec52, #0ba360);
+    min-height: 100vh;
+    background: linear-gradient(135deg, #2b1055, #7597de);
     color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    position: relative;
+    overflow-x: hidden;
 }
 
-/* Contenedor */
-.container {
+.background-overlay {
+    position: fixed;
+    inset: 0;
+    background: url("https://i.imgur.com/8Qf6B9F.png") center/cover no-repeat;
+    opacity: 0.15;
+    z-index: -1;
+}
+
+/* Hero */
+.hero {
     text-align: center;
-    background-color: rgba(0, 0, 0, 0.4);
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    padding: 4rem 1rem;
 }
 
-/* Header */
-header h1 {
-    font-size: 2.5em;
-    margin-bottom: 10px;
+.hero h1 {
+    font-size: 3rem;
+    color: #ffb6e1;
+    text-shadow: 0 0 15px rgba(255, 182, 225, 0.8);
 }
 
-header p {
-    font-size: 1.2em;
-    margin-bottom: 30px;
+.hero p {
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+    color: #f5d9ff;
 }
 
-/* Main */
-main p {
-    margin: 20px 0;
-    font-size: 1.2em;
+/* Cards */
+.cards {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    padding: 2rem;
+    flex-wrap: wrap;
 }
 
-.icon {
-    width: 80px;
-    margin-bottom: 20px;
+.card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 2rem;
+    width: 300px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
-button {
-    padding: 12px 25px;
-    font-size: 1em;
-    background-color: #ffbb33;
-    color: #333;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: 0.3s;
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(255, 182, 225, 0.5);
 }
 
-button:hover {
-    background-color: #ffdd66;
+.card h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+
+.card p {
+    text-align: center;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* Colores por personaje */
+.lancelot h2 {
+    color: #6cf2ff;
+    text-shadow: 0 0 10px rgba(108, 242, 255, 0.8);
+}
+
+.odette h2 {
+    color: #ff9edb;
+    text-shadow: 0 0 10px rgba(255, 158, 219, 0.8);
 }
 
 /* Footer */
 footer {
-    margin-top: 30px;
-    font-size: 0.9em;
-    color: #eee;
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 0.9rem;
+    color: #ffd6f5;
 }
+
